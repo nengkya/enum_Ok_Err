@@ -8,14 +8,23 @@ fn main() {
     let _a:i8 = 9;
     let mut _a = "aa";
     let mut _a:i8 = 9;
+    let _tuple = ();
     let _tuple:();
     let _tuple:() = ();
     let _tuple:(i32, f64, char) = (5, 15., 'c');
+    let _tuple:&(i32, f64, char) = &(5, 15., 'c');
     let _tuple = (1, 15., 'c');
     let (_x, _u, _z) = _tuple;
     let (mut _x, _u, mut _z) = _tuple;
     let _fifteen_not_allow_camel_case:f32 = _tuple.1;
     let _array_must_be_same_type = [1., 2.];
+    /*let _array = []; error*/
+    let _empty_array:[i8;0];
+    let _empty_array:[i8;00];
+    let _empty_array:[i8;00] = [];
+    let _array:[u8;3];
+    let _array:[u8;3] = [0, 1, 2];
+    let _array:&[u8;3] = &[0, 1, 2];
     let secret_number = rand::rng().random_range(1..=100);
 
     println!("{_z} input your guess:");
