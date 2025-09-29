@@ -2,8 +2,12 @@ use rand::Rng;
 
 fn main() {
 
-    println!("input your guess:");
+    let _a = 5;
+    let _a = 'a';
+    let mut _a = "aa";
+    const _MUST_UPPERCASE:i8 = 1;
     let secret_number = rand::rng().random_range(1..=100);
+    println!("input your guess:");
     
     loop {
         let mut guess = String::new();
