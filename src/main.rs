@@ -6,13 +6,21 @@ fn main() {
     let _a = 5;
     let _a = 'a';
     let _a:i8 = 9;
+    let a:&u8 = &mut 0u8;
+    println!("{a}");
     let mut _a = "aa";
     let mut _a:i8 = 9;
+    let mut _a:&u8 = &0u8;
     let _tuple = ();
-    let _tuple:();
-    let _tuple:() = ();
-    let _tuple:(i32, f64, char) = (5, 15., 'c');
-    let _tuple:&(i32, f64, char) = &(5, 15., 'c');
+    let _tuple: ();
+    let _tuple: () = ();
+    let _tuple: (i32, f64, char) = (5, 15., 'c');
+    let tuple : &(i32, f64, char) = & (5i32, 15., 'c');
+    println!("{tuple:?}");
+    let tuple : &(i32, f64, char) = &mut (5i32, 15., 'c');
+    println!("{tuple:?}");
+    let tuple : &mut (i32, f64, char) = & mut (5i32, 15., 'c');
+    println!("{tuple:?}");
     let _tuple = (1, 15., 'c');
     let (_x, _u, _z) = _tuple;
     let (mut _x, _u, mut _z) = _tuple;
@@ -20,11 +28,14 @@ fn main() {
     let _array_must_be_same_type = [1., 2.];
     /*let _array = []; error*/
     let _empty_array:[i8;0];
-    let _empty_array:[i8;00];
-    let _empty_array:[i8;00] = [];
+    let empty_array:[i8;00] = [];
+    /*println!("{empty_array}"); error*/
+    println!("{empty_array:?}");
+    let mut _empty_array:[i8;00] = [];
     let _array:[u8;3];
     let _array:[u8;3] = [0, 1, 2];
-    let _array:&[u8;3] = &[0, 1, 2];
+    let _array:&[u8;3] = &[0, 1, 2u8];
+    let _zer0:&u8 = &_array[0];
     let secret_number = rand::rng().random_range(1..=100);
 
     println!("{_z} input your guess:");
