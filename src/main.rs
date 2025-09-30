@@ -2,8 +2,21 @@ use rand::Rng;
 
 fn main() {
 
-    const _MUST_UPPERCASE:i8 = 1;
-    let _a = 5;
+    /*
+    The println! macro uses the std::fmt syntax, offering many ways to format your integer.
+
+    Formatting Style	Example Code	                    Output
+    Default Display	    println!("{}", MUST_UPPERCASE);	    1
+    Debug               println!("{:?}", MUST_UPPERCASE);	1
+    Binary	            println!("{:b}", MUST_UPPERCASE);	1
+    Hexadecimal	        println!("{:x}", MUST_UPPERCASE);	1
+    Octal	            println!("{:o}", MUST_UPPERCASE);	1
+    Padded (5 width)	println!("{:0>5}", MUST_UPPERCASE);	00001
+    */
+    pub const MUST_UPPERCASE:i8 = 20i8; println!("{MUST_UPPERCASE:x}");
+
+    let mut a = 5; println!("{a:0>5}");
+    a = 16; println!("{a:o}");
     let _a = 'a';
     let _a:i8 = 9;
     let a:&u8 = &mut 0u8;
@@ -11,11 +24,12 @@ fn main() {
     let mut _a = "aa";
     let mut _a:i8 = 9;
     let mut _a:&u8 = &0u8;
-    let _tuple = ();
+    let tuple = ();println!("{tuple:?}");
     let _tuple: ();
     let _tuple: () = ();
     let _tuple: (i32, f64, char) = (5, 15., 'c');
-    let tuple : &(i32, f64, char) = & (5i32, 15., 'c');
+    let tuple : & mut (i32, f64, char) = & mut (5i32, 15., 'c');(*tuple).0 = 10;
+
     println!("{tuple:?}");
     let tuple : &(i32, f64, char) = &mut (5i32, 15., 'c');
     println!("{tuple:?}");
